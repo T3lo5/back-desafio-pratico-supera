@@ -5,12 +5,10 @@ CREATE TABLE conta (
 
 CREATE TABLE transferencia (
                                id INT AUTO_INCREMENT PRIMARY KEY,
-                               data_transferencia TIMESTAMP NOT NULL,
-                               valor DECIMAL(10,2) NOT NULL,
-                               tipo VARCHAR(15) NOT NULL,
-                               nome_operador_transacao VARCHAR(50),
-                               conta_id INT NOT NULL,
-                               CONSTRAINT FK_CONTA
-                                   FOREIGN KEY (conta_id)
-                                       REFERENCES conta(id_conta)
+                               dataTransferencia DATETIME NOT NULL,
+                               valor DECIMAL(10, 2) NOT NULL,
+                               tipo VARCHAR(50) NOT NULL,
+                               nomeOperadorTransacao VARCHAR(100) NOT NULL,
+                               contaId INT NOT NULL,
+                               FOREIGN KEY (contaId) REFERENCES conta(id)
 );

@@ -25,7 +25,7 @@ public class Transferencia {
     private String nomeOperadorTransacao;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "conta_id", nullable = false)
+    @JoinColumn(name = "id_conta", referencedColumnName = "id_conta", nullable = false)
     private Conta conta;
 
     // Getters and setters
@@ -76,16 +76,5 @@ public class Transferencia {
 
     public void setConta(Conta conta) {
         this.conta = conta;
-    }
-
-    public Long getContaId() {
-        return conta != null ? conta.getId() : null;
-    }
-
-    public void setContaId(Long contaId) {
-        if (conta == null) {
-            conta = new Conta();
-        }
-        conta.setId(contaId);
     }
 }
