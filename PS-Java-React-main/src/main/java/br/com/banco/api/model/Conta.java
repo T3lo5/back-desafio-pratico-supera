@@ -1,29 +1,39 @@
 package br.com.banco.api.model;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "conta")
 public class Conta {
+    public Conta(int idConta, String nomeResponsavel) {
+        this.idConta = idConta;
+        this.nomeResponsavel = nomeResponsavel;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_conta")
-    private Long idConta;
+    private int idConta;
 
     @Column(name = "nome_responsavel", nullable = false)
     private String nomeResponsavel;
 
-    @OneToMany(mappedBy = "conta", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Transferencia> transferencias;
+
+    // Construtores, getters e setters
 
 
-    public Long getId() {
+    public Conta() {
+    }
+
+    public Conta(String nomeResponsavel) {
+        this.nomeResponsavel = nomeResponsavel;
+    }
+
+    public int getIdConta() {
         return idConta;
     }
 
-    public void setId(Long idConta) {
+    public void setIdConta(int idConta) {
         this.idConta = idConta;
     }
 
@@ -34,14 +44,4 @@ public class Conta {
     public void setNomeResponsavel(String nomeResponsavel) {
         this.nomeResponsavel = nomeResponsavel;
     }
-
-    public List<Transferencia> getTransferencias() {
-        return transferencias;
-    }
-
-    public void setTransferencias(List<Transferencia> transferencias) {
-        this.transferencias = transferencias;
-    }
-
-
 }

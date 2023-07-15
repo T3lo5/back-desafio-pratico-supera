@@ -4,18 +4,36 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public class TransferenciaDTO {
-
     private Long id;
     private LocalDateTime dataTransferencia;
     private BigDecimal valor;
     private String tipo;
     private String nomeOperadorTransacao;
-    private String nomeResponsavel;
-    private String mensagemErro;
-    private String nomeBanco;
-    private Long contaId;
+    private int contaId;
 
-    // Getters and setters
+    public TransferenciaDTO() {
+        // Construtor padrão vazio
+    }
+
+    public TransferenciaDTO(Long id, LocalDateTime dataTransferencia, BigDecimal valor, String tipo, String nomeOperadorTransacao) {
+        this.id = id;
+        this.dataTransferencia = dataTransferencia;
+        this.valor = valor;
+        this.tipo = tipo;
+        this.nomeOperadorTransacao = nomeOperadorTransacao;
+    }
+
+    public TransferenciaDTO(Long id, LocalDateTime dataTransferencia, BigDecimal valor, String tipo,
+                            String nomeOperadorTransacao, int contaId) {
+        this.id = id;
+        this.dataTransferencia = dataTransferencia;
+        this.valor = valor;
+        this.tipo = tipo;
+        this.nomeOperadorTransacao = nomeOperadorTransacao;
+        this.contaId = contaId;
+    }
+
+    // Getters e setters
 
     public Long getId() {
         return id;
@@ -57,35 +75,11 @@ public class TransferenciaDTO {
         this.nomeOperadorTransacao = nomeOperadorTransacao;
     }
 
-    public String getNomeResponsavel() {
-        return nomeResponsavel;
-    }
-
-    public void setNomeResponsavel(String nomeResponsavel) {
-        this.nomeResponsavel = nomeResponsavel;
-    }
-
-    public String getMensagemErro() {
-        return mensagemErro;
-    }
-
-    public void setMensagemErro(String mensagemErro) {
-        this.mensagemErro = mensagemErro;
-    }
-
-    public String getNomeBanco() {
-        return nomeBanco;
-    }
-
-    public void setNomeBanco(String nomeBanco) {
-        this.nomeBanco = nomeBanco;
-    }
-
-    public Long getContaId() {
+    public int getContaId() {
         return contaId;
     }
 
-    public void setContaId(Long contaId) {
+    public void setContaId(int contaId) {
         this.contaId = contaId;
     }
 }
